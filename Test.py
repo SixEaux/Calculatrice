@@ -1,3 +1,11 @@
+from multiprocessing.util import sub_debug
+from tkinter import *
+from tkinter import ttk
+
+x=float(input("Enter the value of x: "))
+y=float(input("Enter the value of y: "))
+
+
 def somme(x,y):
     return(x+y)
 def substract(x,y):
@@ -18,9 +26,16 @@ def roots(x,y):
         return(x**(1/y))
 
 
+root = Tk()
 
-import tkinter as tk
+frame = Frame(root)
+frame.pack()
+root.geometry("500x200")
 
+label = ttk.Label(frame, text=f"{int(x)}" )
+label.pack(side="left")
+label2 = ttk.Label(frame, text=f"{int(y)}")
+label2.pack(side="bottom")
 
 def on_button_click(operation):
     if operation == "add":
@@ -36,25 +51,12 @@ def on_button_click(operation):
     elif operation == "root":
         result = roots(x, y)
 
-
-    print(result)
-
-
-
-x = float(input('Give x: '))
-y = float(input('Give y: '))
-
-
-root = tk.Tk()
-
-
-button_add = tk.Button(root, text="Add (+)", command=lambda: on_button_click("add"))
-button_sub = tk.Button(root, text="Subtract (-)", command=lambda: on_button_click("sub"))
-button_mul = tk.Button(root, text="Multiply (*)", command=lambda: on_button_click("mul"))
-button_div = tk.Button(root, text="Divide (/)", command=lambda: on_button_click("div"))
-button_pow = tk.Button(root, text="Power (^)", command=lambda: on_button_click("pow"))
-button_root = tk.Button(root, text="Root", command=lambda: on_button_click("root"))
-
+button_add = Button(root, text="Add (+)", command=lambda: on_button_click("add"))
+button_sub = Button(root, text="Subtract (-)", command=lambda: on_button_click("sub"))
+button_mul = Button(root, text="Multiply (*)", command=lambda: on_button_click("mul"))
+button_div = Button(root, text="Divide (/)", command=lambda: on_button_click("div"))
+button_pow = Button(root, text="Power (^)", command=lambda: on_button_click("pow"))
+button_root = Button(root, text="Root", command=lambda: on_button_click("root"))
 
 button_add.pack(padx=10, pady=5)
 button_sub.pack(padx=10, pady=5)
@@ -63,5 +65,5 @@ button_div.pack(padx=10, pady=5)
 button_pow.pack(padx=10, pady=5)
 button_root.pack(padx=10, pady=5)
 
-
 root.mainloop()
+
