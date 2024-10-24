@@ -40,16 +40,36 @@ label2.pack(side="bottom")
 def on_button_click(operation):
     if operation == "add":
         result = somme(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
     elif operation == "sub":
         result = substract(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
     elif operation == "mul":
         result = multip(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
     elif operation == "div":
         result = divis(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
     elif operation == "pow":
         result = powerof(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
     elif operation == "root":
         result = roots(x, y)
+        res = Label(root, text=f"{int(result)}")
+        res.pack(side="bottom")
+        print(result)
+
+
 
 button_add = Button(root, text="Add (+)", command=lambda: on_button_click("add"))
 button_sub = Button(root, text="Subtract (-)", command=lambda: on_button_click("sub"))
@@ -64,6 +84,9 @@ button_mul.pack(padx=10, pady=5)
 button_div.pack(padx=10, pady=5)
 button_pow.pack(padx=10, pady=5)
 button_root.pack(padx=10, pady=5)
+
+
+
 
 root.mainloop()
 
