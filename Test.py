@@ -2,70 +2,120 @@ from multiprocessing.util import sub_debug
 from tkinter import *
 from tkinter import ttk
 
-x=float(input("Enter the value of x: "))
-y=float(input("Enter the value of y: "))
+
+class Calculatrice:
+    def __init__(self,root):
+        self.root = root
+        self.root.geometry('600x600')
+        self.root.title('Calculatrice')
+
+        self.res = StringVar()
+        self.valeur = ''
+        self.boutons()
 
 
-def somme(x,y):
-    return(x+y)
-def substract(x,y):
-    return(x-y)
-def multip(x,y):
-    return(x*y)
-def divis(x,y):
-    if y==0:
-        return('error')
-    else:
-        return(x/y)
-def powerof(x,y):
-    return(x**y)
-def roots(x,y):
-    if y==0:
-        return('error')
-    else:
-        return(x**(1/y))
+    def affiche(self,valeur):
+        self.valeur += str(valeur)
+        self.res.set(self.valeur)
+
+    def boutons(self):
+        Entry(self.root, width=100, bg='orange', textvariable=self.res).place(x=50, y=10)
+
+        Button(self.root, text="+", command=lambda:self.affiche('+')).place(x=50,y=50)
+        Button(self.root, text="-", command=lambda: self.affiche('-')).place(x=50,y=100)
+        Button(self.root, text="x", command=lambda: self.affiche('x')).place(x=50,y=150)
+        Button(self.root, text="/", command=lambda: self.affiche('/')).place(x=50,y=200)
+        Button(self.root, text="^", command=lambda: self.affiche('^')).place(x=50,y=250)
+        Button(self.root, text="Root", command=lambda: self.affiche('Root')).place(x=50,y=300)
 
 
-root = Tk()
+    def somme(self, y):
+            return (x + y)
 
-frame = Frame(root)
-frame.pack()
-root.geometry("500x200")
+    def substract(self, y):
+            return (x - y)
 
-label = ttk.Label(frame, text=f"{int(x)}" )
-label.pack(side="left")
-label2 = ttk.Label(frame, text=f"{int(y)}")
-label2.pack(side="bottom")
+    def multip(self, y):
+            return (x * y)
 
-def on_button_click(operation):
-    if operation == "add":
-        print(somme(x, y))
-    elif operation == "sub":
-        print(substract(x, y))
-    elif operation == "mul":
-        print(multip(x, y))
-    elif operation == "div":
-        print(divis(x, y))
-    elif operation == "pow":
-        print(powerof(x, y))
-    elif operation == "root":
-        print(roots(x, y))
+    def divis(self, y):
+            if y == 0:
+                return ('error')
+            else:
+                return (x / y)
+
+    def powerof(self, y):
+            return (x ** y)
+
+    def roots(self, y):
+            if y == 0:
+                return ('error')
+            else:
+                return (x ** (1 / y))
 
 
-button_add = Button(root, text="Add (+)", command=lambda: on_button_click("add"))
-button_sub = Button(root, text="Subtract (-)", command=lambda: on_button_click("sub"))
-button_mul = Button(root, text="Multiply (*)", command=lambda: on_button_click("mul"))
-button_div = Button(root, text="Divide (/)", command=lambda: on_button_click("div"))
-button_pow = Button(root, text="Power (^)", command=lambda: on_button_click("pow"))
-button_root = Button(root, text="Root", command=lambda: on_button_click("root"))
-button_root = Button(root, text="Root", command=lambda: on_button_click("root"))
 
-button_add.pack(padx=10, pady=5)
-button_sub.pack(padx=10, pady=5)
-button_mul.pack(padx=10, pady=5)
-button_div.pack(padx=10, pady=5)
-button_pow.pack(padx=10, pady=5)
-button_root.pack(padx=10, pady=5)
+
+
+
+
+
+
+
+# bouttext=Button(root, text="Afficher", command=choinomb)
+# bouttext.pack(side=TOP, padx=50, pady=10)
+#
+# entry = Entry(root)
+# entry.pack()
+#
+# frame = Frame(root)
+# frame.pack()
+# root.geometry("500x200")
+#
+# label = ttk.Label(frame, text=f"{int(x)}" )
+# label.pack(side="left")
+# label2 = ttk.Label(frame, text=f"{int(y)}")
+# label2.pack(side="bottom")
+#
+# def on_button_click(operation):
+#     if operation == "add":
+#         result = somme(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="bottom")
+#         print(result)
+#     elif operation == "sub":
+#         result = substract(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="right")
+#         print(result)
+#     elif operation == "mul":
+#         result = multip(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="bottom")
+#         print(result)
+#     elif operation == "div":
+#         result = divis(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="bottom")
+#         print(result)
+#     elif operation == "pow":
+#         result = powerof(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="bottom")
+#         print(result)
+#     elif operation == "root":
+#         result = roots(x, y)
+#         res = Label(root, text=f"{int(result)}")
+#         res.pack(side="bottom")
+#         print(result)
+
+
+
+root=Tk()
+calculette = Calculatrice(root)
+
+
+
 
 root.mainloop()
 
