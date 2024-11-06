@@ -17,14 +17,23 @@ class Calculatrice:
     def boutons(self):
         Entry(self.root, width=100, bg='orange', textvariable=self.res).place(x=50, y=10)
 
-        Button(self.root, text="+", command=lambda:self.affiche('+')).place(x=50,y=50)
-        Button(self.root, text="-", command=lambda: self.affiche('-')).place(x=50,y=100)
-        Button(self.root, text="x", command=lambda: self.affiche('x')).place(x=50,y=150)
-        Button(self.root, text="/", command=lambda: self.affiche('/')).place(x=50,y=200)
-        Button(self.root, text="^", command=lambda: self.affiche('^')).place(x=50,y=250)
-        Button(self.root, text="Root", command=lambda: self.affiche('Root')).place(x=50,y=300)
+        # Button(self.root, text="+", command=lambda:self.affiche('+')).place(x=50,y=50)
+        # Button(self.root, text="-", command=lambda: self.affiche('-')).place(x=50,y=100)
+        # Button(self.root, text="x", command=lambda: self.affiche('x')).place(x=50,y=150)
+        # Button(self.root, text="/", command=lambda: self.affiche('/')).place(x=50,y=200)
+        # Button(self.root, text="^", command=lambda: self.affiche('^')).place(x=50,y=250)
+        # Button(self.root, text="Root", command=lambda: self.affiche('Root')).place(x=50,y=300)
 
-        Button(self.root, text="+/-", command=lambda: self.changesigne()).place(x=50, y=400)
+
+
+        tab = ['+','-', 'x', '/', '^', 'Root', '=']
+        c=50
+        for i in tab:
+            Button(self.root, text=i, command=lambda a=i: self.affiche(a)).place(x=50, y=c)
+            c+=50
+
+        Button(self.root, text="+/-", command=lambda: self.changesigne()).place(x=50, y=500)
+
 
         for i in range(10):
             Button(self.root, text=str(i), command=lambda a=i: self.affiche(str(a))).place(x=300, y=i * 50 + 50)
