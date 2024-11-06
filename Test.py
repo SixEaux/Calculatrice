@@ -27,7 +27,7 @@ class Calculatrice:
 
         if not self.p:
             for i in range(10):
-                Button(self.root, text=str(i), command=lambda a=i: self.affiche(str(a))).place(x=300, y=i * 50 + 50)
+                Button(self.root, text=str(i), command=lambda a=i: self.affiche(str(a)),height=3,width=10).place(x=300, y=i * 50 + 50)
 
         elif self.p:
             t=[str(i) for i in range(10)]
