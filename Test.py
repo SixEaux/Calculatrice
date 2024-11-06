@@ -77,7 +77,7 @@ class Calculatrice:
 
 
 root=Tk()
-calculette = Calculatrice(root,True)
+calculette = Calculatrice(root,False)
 
 
 root.mainloop()
