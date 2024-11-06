@@ -32,6 +32,7 @@ class Calculatrice:
         Button(self.root, text='Del', command=lambda: self.retour()).place(x=500, y=100)
 
 
+
     def resoudre(self):
         pass
 
