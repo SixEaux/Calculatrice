@@ -88,7 +88,15 @@ class Calculatrice:
                 return (x ** (1 / y))
 
 
-
+    def calculate_expression(self):
+            expr = self.valeur.replace('x', '*').replace('^', '**')
+            try:
+                result = eval(expr)
+                self.res.set(result)
+                self.valeur = str(result)
+            except (SyntaxError, ZeroDivisionError):
+                self.res.set("Error")
+                self.valeur = ""
 
 
 
