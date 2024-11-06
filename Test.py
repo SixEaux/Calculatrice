@@ -27,7 +27,7 @@ class Calculatrice:
 
 
         for i in range(10):
-            Button(self.root, text=str(i), command=lambda a=i: self.affiche(str(a)),width=10).place(x=300, y=i * 50 + 50)
+            Button(self.root, text=str(i), command=lambda a=i: self.affiche(str(a)),height=3,width=10).place(x=300, y=i * 50 + 50)
 
         Button(self.root, text='=', command=lambda: self.calculate_expression()).place(x=500, y=50)
         Button(self.root, text='C', command=lambda: self.AC()).place(x=500, y=150)
